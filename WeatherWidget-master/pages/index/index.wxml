@@ -36,6 +36,7 @@
         </view>
         <text class='time' wx:if='{{cityDatas.updateTimeFormat}}'>
           {{cityDatas.updateTimeFormat}} 更新
+          数据来源：和风天气
         </text>
       </view>
       <view class='message'>{{message}}</view>
@@ -43,7 +44,7 @@
         {{cityDatas.now.tmp || '-'}}
         <text style='font-size:50rpx;position:relative;top:-20px;'>℃</text>
       </view>
-      <view class='weather'>{{cityDatas.now.cond_txt || '--'}}</view>
+      <view class='weather num'>{{cityDatas.now.cond_txt || '--'}}</view>
       <view class='pm'>
         <text>能见度 {{cityDatas.now.vis}}</text>
       </view>

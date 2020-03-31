@@ -1,10 +1,12 @@
 page {
   -webkit-font-smoothing: antialiased;
-  font-family: "PingHei","Helvetica Neue","Helvetica","Arial","Verdana","sans-serif";
+  font-family: "PingHei", "Helvetica Neue", "Helvetica", "Arial", "Verdana", "sans-serif";
 }
+
 .num {
   font-weight: 300;
 }
+
 .container {
   display: flex;
   flex-direction: column;
@@ -12,6 +14,7 @@ page {
   color: #fff;
   font-size: 30rpx;
 }
+
 .bcg {
   position: fixed;
   z-index: 2;
@@ -24,6 +27,7 @@ page {
   /* background: #40a7e7; */
   /* background: linear-gradient(to bottom, #73C6F1, #50B5EC); */
 }
+
 .search {
   position: fixed;
   z-index: 4;
@@ -34,6 +38,7 @@ page {
   height: 90rpx;
   /* background: #40a7e7; */
 }
+
 .search .wrapper {
   display: flex;
   flex-direction: row;
@@ -49,17 +54,21 @@ page {
   border: none;
   border-bottom: 1rpx solid #fff;
 }
+
 .search image {
   width: 28rpx;
   height: 28rpx;
   margin-right: 16rpx;
 }
+
 .search input {
   flex: 1;
 }
+
 .placeholderClass {
   color: #fff;
 }
+
 .chooseBcg {
   display: flex;
   flex-direction: column;
@@ -73,50 +82,60 @@ page {
   font-size: 24rpx;
   color: #333;
 }
+
 .chooseBcg .top {
   box-sizing: border-box;
   padding: 20rpx 20rpx 50rpx;
   background: rgba(255, 255, 255, 0);
   color: #fff;
 }
+
 .chooseBcg .bcgs {
   display: flex;
   align-items: center;
   margin-top: 20rpx;
   overflow: scroll;
 }
+
 .chooseBcg .border {
   padding: 6rpx;
   margin-right: 14rpx;
   border: 1rpx solid rgba(255, 255, 255, 0);
   transition: .1s ease;
 }
+
 .chooseBcg .border:last-child {
   margin-right: 0;
 }
+
 .chooseBcg .border.active {
   border: 1rpx solid #40a7e7;
   transition: .1s ease;
 }
+
 .chooseBcg .bcgs image {
   width: 110rpx;
   height: 190rpx;
 }
+
 .chooseBcg .close {
   flex: 1;
   background: rgba(0, 0, 0, 0);
   padding: 20rpx 0;
   text-align: center;
 }
+
 .chooseBcg .close image {
   width: 64rpx;
   height: 64rpx;
 }
+
 .avatarInfo {
   display: flex;
   align-items: center;
   padding: 0 50rpx;
 }
+
 .avatarInfo .avatar {
   display: block;
   overflow: hidden;
@@ -124,26 +143,32 @@ page {
   height: 60rpx;
   border-radius: 50%;
 }
+
 .avatarInfo .name {
   padding: 0 20rpx;
   font-size: 30rpx;
 }
+
 .avatarInfo .downArrow {
   width: 20rpx;
   height: 20rpx;
 }
+
 .container .content {
   flex: 2;
   transition: .3s ease;
 }
+
 .content {
   position: relative;
   z-index: 2;
 }
+
 .info {
   padding: 10rpx 0 50rpx;
   /* border-bottom: 1rpx solid rgba(240, 240, 240, .4); */
 }
+
 .info .temp,
 .info .pm,
 .info .pm view,
@@ -155,17 +180,21 @@ page {
   justify-content: center;
   align-items: center;
 }
+
 .info .weather {
+  font-size: 60rpx;
   margin-bottom: 30rpx;
 }
+
 .info .pm text {
-  font-size: 24rpx;
+  font-size: 40rpx;
   height: 1em;
   line-height: 1em;
   padding: 10rpx 20rpx;
   border-radius: 20rpx;
   background: rgba(240, 240, 240, .2);
 }
+
 .city {
   display: flex;
   align-items: center;
@@ -174,11 +203,13 @@ page {
   padding: 0 50rpx;
   font-size: 66rpx;
 }
+
 .city .name {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .city .name .val {
   max-width: 5em;
   display: -webkit-box;
@@ -186,32 +217,39 @@ page {
   -webkit-line-clamp: 1;
   overflow: hidden;
 }
+
 .city .name .icon,
 .city .name .down {
   width: 30rpx;
   height: 30rpx;
 }
+
 .city .name .icon {
   margin-right: 20rpx;
 }
+
 .city .name .down {
   margin-left: 20rpx;
 }
+
 .city .time {
   display: block;
   text-align: right;
   font-size: 24rpx;
 }
+
 .message {
   font-size: 22rpx;
   color: #fff;
   padding: 30rpx 50rpx 0;
   box-sizing: border-box;
 }
+
 .temp {
   height: 360rpx;
   font-size: 200rpx;
 }
+
 .guide .guides {
   display: flex;
   flex-direction: row;
@@ -224,9 +262,10 @@ page {
   margin-bottom: 20rpx;
   overflow-x: scroll;
 }
+
 .guide .title,
-.hourly .title ,
-.livingIndextitle{
+.hourly .title,
+.livingIndextitle {
   border-bottom: 1rpx solid rgba(250, 250, 250, .2);
   background: rgba(0, 0, 0, .6);
   font-size: 24rpx;
@@ -234,6 +273,7 @@ page {
   line-height: 80rpx;
   text-align: center;
 }
+
 .guide .item {
   display: flex;
   flex-direction: column;
@@ -242,44 +282,53 @@ page {
   width: 170rpx;
   flex-shrink: 0;
 }
+
 .guide image {
   width: 44rpx;
 }
+
 .guide .i {
   padding-bottom: 20rpx;
 }
+
 .guide .i.weather,
 .hour .weather {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .guide .i image,
 .hour .weather image {
   width: 40rpx;
   margin-left: 4rpx;
 }
+
 .hourly {
   margin-bottom: 20rpx;
 }
+
 .hourly .hours {
   padding: 20rpx 10rpx 0;
   background: rgba(0, 0, 0, .6);
 }
+
 .hourly .hours .time {
   font-size: 22rpx;
   height: 60rpx;
   line-height: 60rpx;
   text-align: center;
 }
+
 .details {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  background:rgba(0, 0, 0, .6);
-  margin-bottom:20rpx;
+  background: rgba(0, 0, 0, .6);
+  margin-bottom: 20rpx;
   font-size: 24rpx;
 }
+
 .hour {
   display: flex;
   align-items: center;
@@ -289,11 +338,13 @@ page {
   box-sizing: border-box;
   border-radius: 8rpx;
 }
+
 .hourly swiper-item {
   box-sizing: border-box;
   padding: 0 10rpx;
   background: rgba(0, 0, 0, 0);
 }
+
 .details .detail,
 .hour .detail {
   display: flex;
@@ -307,19 +358,23 @@ page {
   border-bottom: 1rpx solid rgba(250, 250, 250, 0.2);
   box-sizing: border-box;
 }
+
 .details .detail:nth-child(4n),
 .hour .detail:nth-child(4n) {
   border-right: none;
 }
+
 .details .detail:nth-child(n+9),
 .hour .detail:nth-child(n+9) {
   border-bottom: none;
 }
+
 .livingIndex {
   /* border-bottom: 1rpx solid rgba(240, 240, 240, .4); */
   background: rgba(0, 0, 0, .6);
   margin-bottom: 20rpx;
 }
+
 .livingIndex .item {
   display: flex;
   flex-direction: row;
@@ -329,9 +384,11 @@ page {
   padding: 20rpx 0;
   margin: 0 30rpx;
 }
+
 .livingIndex .item:last-child {
   border-bottom: none;
 }
+
 .livingIndex .item .right {
   display: flex;
   flex-direction: column;
@@ -339,15 +396,18 @@ page {
   align-items: flex-start;
   flex: 1;
 }
+
 .livingIndex .item .value {
   margin-top: 10rpx;
   font-size: 24rpx;
 }
+
 .livingIndex .icon {
   width: 80rpx;
   height: 80rpx;
   padding: 0 24rpx;
 }
+
 .menus .menu,
 .menus .share {
   height: 40px;
@@ -359,12 +419,15 @@ page {
   right: 70rpx;
   opacity: 0;
 }
+
 .menus .share {
   background: rgba(0, 0, 0, 0);
 }
+
 .menus .main {
   opacity: 1;
 }
+
 /* 打开设置页面 button */
 .openSettingButton {
   position: fixed;
@@ -381,12 +444,14 @@ page {
   justify-content: center;
   align-items: center;
 }
+
 .openSettingButton image {
   position: relative;
   width: 128rpx;
   height: 128rpx;
   z-index: 2;
 }
+
 .openSettingButton button {
   position: absolute;
   width: 100%;
@@ -396,6 +461,7 @@ page {
   opacity: 0;
   z-index: 3;
 }
+
 .footer {
   display: flex;
   justify-content: space-around;
