@@ -86,7 +86,7 @@ Page({
         topColor: '#b8bab9'
       },
     ],
-    bcgImgIndex: 0,
+    bcgImgIndex: -1,
     bcgImg: '',
     bcgImgAreaShow: false,
     bcgColor: '#2d2225',
@@ -155,7 +155,7 @@ Page({
     let heartbeat = this.selectComponent('#heartbeat')
     heartbeat.dance(() => {
       this.setData({
-        showHeartbeat: false,
+        // showHeartbeat: false,
         enableSearch: true,
       })
       this.setData({
@@ -490,31 +490,37 @@ Page({
       })
     })
   },
-  // showBcgImgArea () {
-  //   this.setData({
-  //     bcgImgAreaShow: true,
-  //   })
-  // },
+  showBcgImgArea() {
+    this.setData({
+      bcgImgAreaShow: true,
+    })
+  },
   hideBcgImgArea() {
     this.setData({
       bcgImgAreaShow: false,
     })
   },
-  // chooseBcg (e) {
-  //   let dataset = e.currentTarget.dataset
-  //   let src = dataset.src
-  //   let index = dataset.index
-  //   this.setBcgImg(index)
-  //   wx.setStorage({
-  //     key: 'bcgImgIndex',
-  //     data: index,
-  //   })
-  // },
-  // toCitychoose () {
-  //   wx.navigateTo({
-  //     url: '/pages/citychoose/citychoose',
-  //   })
-  // },
+  chooseBcg(e) {
+    let dataset = e.currentTarget.dataset
+    let src = dataset.src
+    let index = dataset.index
+    // this.setBcgImg(index)
+    this.setData({
+      bcgImgIndex: index,
+      bcgImg: this.data.bcgImgList[index].src,
+      bcgColor: this.data.bcgImgList[index].topColor,
+    })
+    this.setNavigationBarColor()
+    wx.setStorage({
+      key: 'bcgImgIndex',
+      data: index,
+    })
+  },
+  toCitychoose() {
+    wx.navigateTo({
+      url: '/pages/citychoose/citychoose',
+    })
+  },
   initSetting(successFunc) {
     wx.getStorage({
       key: 'setting',
@@ -540,9 +546,9 @@ Page({
   onShareAppMessage(res) {
     let shareInfo = this.data.shareInfo
     return {
-      title: shareInfo.title || '天气早知道',
+      title: shareInfo.title || '风云气象',
       path: shareInfo.path || '/pages/index/index',
-      imageUrl: '/img/share.jpg',
+      imageUrl: this.data.bcgImg,
     }
   },
   menuHide() {
@@ -554,6 +560,8 @@ Page({
     }
   },
   menuMain() {
+    console.log("cloudfunctionRoot", this.data.hasPopped)
+
     if (!this.data.hasPopped) {
       this.popp()
       this.setData({

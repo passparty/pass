@@ -101,7 +101,7 @@ Page({
   //   })
   // },
   onLoad() {
-    this.getHotCities()
+    // this.getHotCities()
     let cities = this.getSortedAreaObj(staticData.cities || [])
     this.setData({
       cities,

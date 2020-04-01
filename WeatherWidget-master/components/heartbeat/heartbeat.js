@@ -17,7 +17,7 @@ Component({
       value: true
     },
   },
-  ready () {
+  ready() {
     let systeminfo = getApp().globalData.systeminfo
     if (utils.isEmptyObject(systeminfo)) {
       wx.getSystemInfo({
@@ -43,7 +43,7 @@ Component({
     })
   },
   methods: {
-    dance (callback) {
+    dance(callback) {
       let windowWidth = this.data.windowWidth
       let windowHeight = this.data.windowHeight
       let duration = this.data.duration
