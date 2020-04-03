@@ -1,30 +1,66 @@
+/*
+ * @Description: 
+ * @Version: 2.0
+ * @Autor: Party
+ * @Date: 2020-03-30 15:27:37
+ * @LastEditors: Party
+ * @LastEditTime: 2020-04-03 16:44:38
+ */
 let utils = require('../../utils/utils')
 Page({
   data: {
-    // projectAddress: 'https://github.com/myvin/quietweather',
-    // github: 'https://github.com/myvin',
-    email: '383755537@qq.com',
-    qq: '383755537',
+    projectAddress: 'https://github.com/myvin/quietweather',
+    githubProject: 'https://github.com/zhangliwen1101/WeatherWidget',
     swiperHeight: 'auto',
     bannerImgList: [
       {
-        src: 'https://raw.githubusercontent.com/zhangliwen1101/Images/master/img/weather.jpg',
-        title: 'Weather Widget',
+        src: '../../img/yun.jpg',
+        title: '风云气象',
       },
       {
-        src: 'https://raw.githubusercontent.com/zhangliwen1101/Images/master/img/weather.jpg',
-        title: 'Weather Widget',
+        src: '../../img/wu.jpg',
+        title: '风云气象',
       },
       {
-        src: 'https://raw.githubusercontent.com/zhangliwen1101/Images/master/img/wait.jpg',
-        title: 'Weather Widget',
+        src: '../../img/xue.jpg',
+        title: '风云气象',
       },
     ],
   },
-  onLoad () {
+  onLoad() {
     this.initSwiper()
   },
-  previewImages (e) {
+  wechatPayment(e) {
+    const dt = new Date;
+    dt.setMinutes(dt.getMinutes() + dt.getTimezoneOffset()); // 当前时间(分钟) + 时区偏移(分钟)
+    let timestamp = dt.getTime().toString();
+    timestamp = timestamp.substr(0, timestamp.length - 3)
+    // appid： wxd930ea5d5a258f4f
+    // mch_id： 10000100
+    // device_info： 1000
+    // body： test
+    // nonce_str： ibuaiVcKdpRxkhJA
+    const stringA = "appid=wxd930ea5d5a258f4f&body=test&device_info=1000&mch_id=10000100&nonce_str=ibuaiVcKdpRxkhJA";
+    const stringSignTemp = stringA + "&key=192006250b4c09247ec02edce69f6a2d" //注：key为商户平台设置的密钥key
+    const sign
+      // = MD5(stringSignTemp).toUpperCase()
+      = "9A0A8659F005D6984697E2CA0A9CF3B7" //注：MD5签名方式
+    wx.requestPayment({
+      timeStamp: timestamp,
+      nonceStr: '随机32个以下字符串',
+      package: 'prepay_id=1',
+      signType: 'MD5',
+      paySign: sign,
+      success(res) {
+        console.log('success: ', res, sign)
+      },
+      fail(res) {
+
+        console.log('fail: ', res, sign)
+      }
+    })
+  },
+  previewImages(e) {
     let index = e.currentTarget.dataset.index || 0
     let urls = this.data.bannerImgList
     let arr = []
@@ -40,7 +76,7 @@ Page({
       }
     })
   },
-  initSwiper () {
+  initSwiper() {
     let systeminfo = getApp().globalData.systeminfo
     if (utils.isEmptyObject(systeminfo)) {
       wx.getSystemInfo({
@@ -52,7 +88,7 @@ Page({
       this.setSwiperHeight(systeminfo)
     }
   },
-  setSwiperHeight (res) {
+  setSwiperHeight(res) {
     this.setData({
       swiperHeight: `${(res.windowWidth || res.screenWidth) / 375 * 200}px`
     })
@@ -63,7 +99,7 @@ Page({
     let content = dataset.content || ''
     wx.setClipboardData({
       data: content,
-      success () {
+      success() {
         wx.showToast({
           title: `已复制${title}`,
           duration: 2000,

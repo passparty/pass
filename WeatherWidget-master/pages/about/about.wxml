@@ -11,57 +11,36 @@
       </block>
     </swiper>
     <!-- <ad unit-id="adunit-da632c715ebfb1a5"></ad> -->
-    <!-- <view class='item'>
-      <view class='title'>代码已开源</view>
+    <view class='item'>
+      <view class='title'>微信打赏</view>
+      <view class='i' catchtap='wechatPayment' data-title='微信打赏'>
+        <view class='icon'>
+          <image src='/img/wechat.png'></image>
+        </view>
+        <view class='text'>
+          <view>点击一下</view>
+        </view>
+      </view>
+    </view>
+    <view class='thanks item'>
+      <view class='title'>鸣谢</view>
+      <view>开源代码：</view>
       <view class='i' catchtap='copy' data-title='项目地址' data-content='{{projectAddress}}'>
         <view class='icon'>
           <image src='/img/github.png'></image>
         </view>
         <view class='text'>
-          <view>可随意 star</view>
           <view>{{projectAddress}}</view>
         </view>
       </view>
-    </view> -->
-    <view class='item'>
-      <view class='title'>联系开发者</view>
-      <!-- <view class='i' catchtap='copy' data-title='GitHub' data-content='{{github}}'>
+      <view class='i' catchtap='copy' data-title='项目地址' data-content='{{githubProject}}'>
         <view class='icon'>
           <image src='/img/github.png'></image>
         </view>
         <view class='text'>
-          <view>通过 GitHub 反馈</view>
-          <view>{{github}}</view>
-        </view>
-      </view> -->
-      <view class='i' catchtap='copy' data-title='邮箱' data-content='{{email}}'>
-        <view class='icon'>
-          <image src='/img/email.png'></image>
-        </view>
-        <view class='text'>
-          <view>通过 Email 反馈</view>
-          <view>{{email}}</view>
+          <view>{{githubProject}}</view>
         </view>
       </view>
-      <view class='i' catchtap='copy' data-title='QQ' data-content='{{qq}}'>
-        <view class='icon'>
-          <image src='/img/qq.png'></image>
-        </view>
-        <view class='text'>
-          <view>通过 QQ 反馈</view>
-          <view>{{qq}}</view>
-        </view>
-      </view>
-      <!-- <view class='i'>
-        <view class='icon'>
-          <image src='/img/wechat.png'></image>
-        </view>
-        <view class='text'>微信快速联系</view>
-        <button open-type="contact" class='btn'></button>
-      </view> -->
-    </view>
-    <view class='thanks item'>
-      <view class='title'>鸣谢</view>
       <view class='i'>
         <view class='icon'>
           <image src='/img/weather.png'></image>
@@ -70,5 +49,5 @@
       </view>
     </view>
   </view>
-  <view class='footer'>developed by jack.zhang</view>
+  <view class='footer'>developed by pass party</view>
 </view>

@@ -227,50 +227,7 @@ Page({
           if (data.status === 'ok') {
             this.clearInput()
             this.success(data, location)
-            if (data.now.cond_txt.indexOf('晴') >= 0) {
-              this.setData({
-                bcgImg: this.data.bcgImgList[0].src,
-                bcgColor: this.data.bcgImgList[0].topColor,
-              })
-              this.setNavigationBarColor()
-            } else if (data.now.cond_txt.indexOf('雨') >= 0) {
-              this.setData({
-                bcgImg: this.data.bcgImgList[1].src,
-                bcgColor: this.data.bcgImgList[1].topColor,
-              })
-              this.setNavigationBarColor()
-            } else if (data.now.cond_txt.indexOf('雪') >= 0) {
-              this.setData({
-                bcgImg: this.data.bcgImgList[2].src,
-                bcgColor: this.data.bcgImgList[2].topColor,
-              })
-              this.setNavigationBarColor()
-            } else if (data.now.cond_txt.indexOf('云') >= 0) {
-              this.setData({
-                bcgImg: this.data.bcgImgList[3].src,
-                bcgColor: this.data.bcgImgList[3].topColor,
-              })
-              this.setNavigationBarColor()
-            } else if (data.now.cond_txt.indexOf('雾') >= 0) {
-              this.setData({
-                bcgImg: this.data.bcgImgList[4].src,
-                bcgColor: this.data.bcgImgList[4].topColor,
-              })
-              this.setNavigationBarColor()
-            } else if (data.now.cond_txt.indexOf('阴') >= 0) {
-              this.setData({
-                bcgImg: this.data.bcgImgList[5].src,
-                bcgColor: this.data.bcgImgList[5].topColor,
-              })
-              this.setNavigationBarColor()
-            } else {
-              this.setData({
-                bcgImg: this.data.bcgImgList[6].src,
-                bcgColor: this.data.bcgImgList[6].topColor,
-              })
-              this.setNavigationBarColor()
-            }
-
+            this.localWeather(data)
           } else {
             wx.showToast({
               title: '查询失败',
@@ -315,64 +272,71 @@ Page({
   onPullDownRefresh(res) {
     this.reloadPage()
   },
-  getCityDatas() {
-    let cityDatas = wx.getStorage({
-      key: 'cityDatas',
+  // 展示当前天气状况
+  localWeather(data) {
+    if (data.now.cond_txt.indexOf('晴') >= 0) {
+      this.changeDataBcgImg(0)
+    } else if (data.now.cond_txt.indexOf('雨') >= 0) {
+      this.changeDataBcgImg(1)
+    } else if (data.now.cond_txt.indexOf('雪') >= 0) {
+      this.changeDataBcgImg(2)
+    } else if (data.now.cond_txt.indexOf('云') >= 0) {
+      this.changeDataBcgImg(3)
+    } else if (data.now.cond_txt.indexOf('雾') >= 0) {
+      this.changeDataBcgImg(4)
+    } else if (data.now.cond_txt.indexOf('阴') >= 0) {
+      this.changeDataBcgImg(5)
+    } else {
+      this.changeDataBcgImg(6)
+    }
+  },
+  changeDataBcgImg(index) {
+    this.setData({
+      bcgImgIndex: index,
+      bcgImg: this.data.bcgImgList[index].src,
+      bcgColor: this.data.bcgImgList[index].topColor,
+    })
+    this.setNavigationBarColor()
+    wx.setStorage({
+      key: 'bcgImgIndex',
+      data: index,
+    })
+  },
+  // 获取背景图片
+  getBcgImg() {
+    wx.getStorage({
+      key: 'bcgImgIndex',
       success: (res) => {
-        this.setData({
-          cityDatas: res.data,
-        })
-        if (res.data.now.cond_txt.indexOf('晴') >= 0) {
-          this.setData({
-            bcgImg: this.data.bcgImgList[0].src,
-            bcgColor: this.data.bcgImgList[0].topColor,
-          })
-          this.setNavigationBarColor()
-        } else if (res.data.now.cond_txt.indexOf('雨') >= 0) {
-          this.setData({
-            bcgImg: this.data.bcgImgList[1].src,
-            bcgColor: this.data.bcgImgList[1].topColor,
-          })
-          this.setNavigationBarColor()
-        } else if (res.data.now.cond_txt.indexOf('雪') >= 0) {
-          this.setData({
-            bcgImg: this.data.bcgImgList[2].src,
-            bcgColor: this.data.bcgImgList[2].topColor,
-          })
-          this.setNavigationBarColor()
-        } else if (res.data.now.cond_txt.indexOf('云') >= 0) {
-          this.setData({
-            bcgImg: this.data.bcgImgList[3].src,
-            bcgColor: this.data.bcgImgList[3].topColor,
-          })
-          this.setNavigationBarColor()
-        } else if (res.data.now.cond_txt.indexOf('雾') >= 0) {
-          this.setData({
-            bcgImg: this.data.bcgImgList[4].src,
-            bcgColor: this.data.bcgImgList[4].topColor,
-          })
-          this.setNavigationBarColor()
-        } else if (res.data.now.cond_txt.indexOf('阴') >= 0) {
-          this.setData({
-            bcgImg: this.data.bcgImgList[5].src,
-            bcgColor: this.data.bcgImgList[5].topColor,
-          })
-          this.setNavigationBarColor()
+        if (Boolean(res.data > -1)) {
+          this.changeDataBcgImg(res.data)
         } else {
           this.setData({
-            bcgImg: this.data.bcgImgList[6].src,
-            bcgColor: this.data.bcgImgList[6].topColor,
+            bcgImg: res.data,
           })
-          this.setNavigationBarColor()
+          this.setNavigationBarColor('#0085e5')
         }
+      },
+      fail: () => {
+        this.localWeather(this.data.cityDatas)
       },
     })
   },
+  // getCityDatas() {
+  //   let cityDatas = wx.getStorage({
+  //     key: 'cityDatas',
+  //     success: (res) => {
+  //       this.setData({
+  //         cityDatas: res.data,
+  //       })
+  //       this.localWeather(res.data)
+  //     },
+  //   })
+  // },
   setNavigationBarColor(color) {
     let bcgColor = color || this.data.bcgColor
     wx.setNavigationBarColor({
       frontColor: '#ffffff',
-      backgroundColor: this.data.bcgColor,
+      backgroundColor: bcgColor,
     })
   },
   menuMainMove(e) {
@@ -458,13 +422,13 @@ Page({
     //     }
     //   }
     // })
+    this.getBcgImg()
   },
   onLoad() {
     this.reloadPage()
   },
   reloadPage() {
-    // this.setBcgImg()
-    this.getCityDatas()
+    // this.getCityDatas()
     this.reloadInitSetting()
     this.reloadWeather()
     this.reloadGetBroadcast()
@@ -504,17 +468,7 @@ Page({
     let dataset = e.currentTarget.dataset
     let src = dataset.src
     let index = dataset.index
-    // this.setBcgImg(index)
-    this.setData({
-      bcgImgIndex: index,
-      bcgImg: this.data.bcgImgList[index].src,
-      bcgColor: this.data.bcgImgList[index].topColor,
-    })
-    this.setNavigationBarColor()
-    wx.setStorage({
-      key: 'bcgImgIndex',
-      data: index,
-    })
+    this.changeDataBcgImg(index)
   },
   toCitychoose() {
     wx.navigateTo({
@@ -538,6 +492,7 @@ Page({
       },
     })
   },
+  // 清空缓存数据后调用
   reloadInitSetting() {
     this.initSetting((setting) => {
       this.checkUpdate(setting)
@@ -560,8 +515,6 @@ Page({
     }
   },
   menuMain() {
-    console.log("cloudfunctionRoot", this.data.hasPopped)
-
     if (!this.data.hasPopped) {
       this.popp()
       this.setData({

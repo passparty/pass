@@ -41,17 +41,88 @@ Page({
       },
     })
   },
-  hide () {
+  defaultBcg() {
+    this.removeBcg(() => {
+      wx.showToast({
+        title: '恢复默认背景',
+        duration: 1500,
+      })
+    })
+  },
+  removeBcg(callback) {
+    wx.removeStorage({
+      key: 'bcgImgIndex'
+    })
+    wx.getSavedFileList({
+      success: function (res) {
+        console.log("res.fileList", res)
+        let fileList = res.fileList
+        let len = fileList.length
+        if (len > 0) {
+          for (let i = 0; i < len; i++)
+            (function (path) {
+              wx.removeSavedFile({
+                filePath: path,
+                complete: function (res) {
+                  if (i === len - 1) {
+                    callback && callback()
+                  }
+                }
+              })
+            })(fileList[i].filePath)
+        } else {
+          callback && callback()
+        }
+      },
+      fail: function () {
+        wx.showToast({
+          title: '出错了，请稍后再试',
+          icon: 'none',
+        })
+      },
+    })
+  },
+  // 自定义背景图
+  customBcg() {
+    wx.chooseImage({
+      success: (res) => {
+        // 删除上一张缓存图
+        this.removeBcg(() => {
+          wx.saveFile({
+            tempFilePath: res.tempFilePaths[0],
+            success(res) {
+              wx.setStorage({
+                key: 'bcgImgIndex',
+                data: res.savedFilePath,
+              })
+              wx.navigateBack({})
+            },
+          })
+        })
+      },
+      fail(res) {
+        let errMsg = res.errMsg
+        // 如果是取消操作，不提示
+        if (errMsg.indexOf('cancel') === -1) {
+          wx.showToast({
+            title: '发生错误，请稍后再试',
+            icon: 'none',
+          })
+        }
+      },
+    })
+  },
+  hide() {
     this.setData({
       show: false,
     })
   },
-  updateInstruc () {
+  updateInstruc() {
     this.setData({
       show: true,
     })
   },
-  onShow () {
+  onShow() {
     let pages = getCurrentPages()
     let len = pages.length
     let indexPage = pages[len - 2]
@@ -77,11 +148,11 @@ Page({
       },
     })
   },
-  ifDisableUpdate () {
+  ifDisableUpdate() {
     let systeminfo = getApp().globalData.systeminfo
     let SDKVersion = systeminfo.SDKVersion
     let version = utils.cmpVersion(SDKVersion, '1.9.90')
-    if (version >=0) {
+    if (version >= 0) {
       this.setData({
         SDKVersion,
         enableUpdate: true,
@@ -93,7 +164,7 @@ Page({
       })
     }
   },
-  getHCEState () {
+  getHCEState() {
     wx.showLoading({
       title: '检测中...',
     })
@@ -104,7 +175,7 @@ Page({
           title: '检测结果',
           content: '该设备支持NFC功能',
           showCancel: false,
-          confirmText: '朕知道了',
+          confirmText: '知道了',
           confirmColor: '#40a7e7',
         })
       },
@@ -114,13 +185,13 @@ Page({
           title: '检测结果',
           content: '该设备不支持NFC功能',
           showCancel: false,
-          confirmText: '朕知道了',
+          confirmText: '知道了',
           confirmColor: '#40a7e7',
         })
       },
     })
   },
-  getScreenBrightness () {
+  getScreenBrightness() {
     wx.getScreenBrightness({
       success: (res) => {
         this.setData({
@@ -134,10 +205,10 @@ Page({
       },
     })
   },
-  screenBrightnessChanging (e) {
+  screenBrightnessChanging(e) {
     this.setScreenBrightness(e.detail.value)
   },
-  setScreenBrightness (val) {
+  setScreenBrightness(val) {
     wx.setScreenBrightness({
       value: val / 100,
       success: (res) => {
@@ -147,7 +218,7 @@ Page({
       },
     })
   },
-  setKeepScreenOn (b) {
+  setKeepScreenOn(b) {
     wx.setKeepScreenOn({
       keepScreenOn: b,
       success: () => {
@@ -157,19 +228,19 @@ Page({
       },
     })
   },
-  getsysteminfo () {
+  getsysteminfo() {
     wx.navigateTo({
       url: '/pages/systeminfo/systeminfo',
     })
   },
-  removeStorage (e) {
+  removeStorage(e) {
     let that = this
     let datatype = e.currentTarget.dataset.type
     if (datatype === 'setting') {
       wx.showModal({
         title: '提示',
         content: '确认要初始化设置',
-        cancelText: '容朕想想',
+        cancelText: '容我想想',
         confirmColor: '#40a7e7',
         success: (res) => {
           if (res.confirm) {
@@ -192,9 +263,9 @@ Page({
       wx.showModal({
         title: '提示',
         content: '确认要删除',
-        cancelText: '容朕想想',
+        cancelText: '容我想想',
         confirmColor: '#40a7e7',
-        success (res) {
+        success(res) {
           if (res.confirm) {
             wx.clearStorage({
               success: (res) => {
