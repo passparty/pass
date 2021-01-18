@@ -7,9 +7,10 @@
 		"minified": true,
 		"newFeature": true
 	},
+	"cloudfunctionRoot": "cloudfunction/",
 	"compileType": "miniprogram",
 	"libVersion": "2.3.0",
-	"appid": "wxadefc8cf1a6665d2",
+	"appid": "wxc27b0b47822e38c6",
 	"projectname": "weather",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},

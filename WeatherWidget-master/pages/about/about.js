@@ -15,15 +15,15 @@ Page({
     bannerImgList: [
       {
         src: '../../img/yun.jpg',
-        title: '风云气象',
+        title: '气象风云',
       },
       {
         src: '../../img/wu.jpg',
-        title: '风云气象',
+        title: '气象风云',
       },
       {
         src: '../../img/xue.jpg',
-        title: '风云气象',
+        title: '气象风云',
       },
     ],
   },

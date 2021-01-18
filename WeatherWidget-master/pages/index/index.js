@@ -501,7 +501,7 @@ Page({
   onShareAppMessage(res) {
     let shareInfo = this.data.shareInfo
     return {
-      title: shareInfo.title || '风云气象',
+      title: shareInfo.title || '气象风云',
       path: shareInfo.path || '/pages/index/index',
       imageUrl: this.data.bcgImg,
     }
