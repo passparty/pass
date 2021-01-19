@@ -11,7 +11,7 @@
       </block>
     </swiper>
     <!-- <ad unit-id="adunit-da632c715ebfb1a5"></ad> -->
-    <view class='item'>
+    <!-- <view class='item'>
       <view class='title'>微信打赏</view>
       <view class='i' catchtap='wechatPayment' data-title='微信打赏'>
         <view class='icon'>
@@ -21,7 +21,7 @@
           <view>点击一下</view>
         </view>
       </view>
-    </view>
+    </view> -->
     <view class='thanks item'>
       <view class='title'>鸣谢</view>
       <view>开源代码：</view>

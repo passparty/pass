@@ -82,7 +82,7 @@ Page({
         topColor: '#2d2225'
       },
       {
-        src: '/img/bg5.jpg',
+        src: '/img/xia.jpg',
         topColor: '#b8bab9'
       },
     ],
@@ -503,7 +503,7 @@ Page({
     return {
       title: shareInfo.title || '气象风云',
       path: shareInfo.path || '/pages/index/index',
-      imageUrl: this.data.bcgImg,
+      imageUrl: "/img/share.png",
     }
   },
   menuHide() {

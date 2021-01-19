@@ -14,17 +14,21 @@ Page({
     swiperHeight: 'auto',
     bannerImgList: [
       {
-        src: '../../img/yun.jpg',
+        src: '/img/share.png',
         title: '气象风云',
       },
       {
-        src: '../../img/wu.jpg',
+        src: '/img/yun.jpg',
         title: '气象风云',
       },
       {
-        src: '../../img/xue.jpg',
+        src: '/img/wu.jpg',
         title: '气象风云',
       },
+      {
+        src: '/img/xue.jpg',
+        title: '气象风云',
+      }
     ],
   },
   onLoad() {
@@ -35,12 +39,12 @@ Page({
     dt.setMinutes(dt.getMinutes() + dt.getTimezoneOffset()); // 当前时间(分钟) + 时区偏移(分钟)
     let timestamp = dt.getTime().toString();
     timestamp = timestamp.substr(0, timestamp.length - 3)
-    // appid： wxd930ea5d5a258f4f
+    // appid： wxc27b0b47822e38c6
     // mch_id： 10000100
     // device_info： 1000
     // body： test
     // nonce_str： ibuaiVcKdpRxkhJA
-    const stringA = "appid=wxd930ea5d5a258f4f&body=test&device_info=1000&mch_id=10000100&nonce_str=ibuaiVcKdpRxkhJA";
+    const stringA = "appid=wxc27b0b47822e38c6&body=test&device_info=1000&mch_id=10000100&nonce_str=ibuaiVcKdpRxkhJA";
     const stringSignTemp = stringA + "&key=192006250b4c09247ec02edce69f6a2d" //注：key为商户平台设置的密钥key
     const sign
       // = MD5(stringSignTemp).toUpperCase()
@@ -64,7 +68,7 @@ Page({
     let index = e.currentTarget.dataset.index || 0
     let urls = this.data.bannerImgList
     let arr = []
-    let imgs = urls.forEach(item => {
+    urls.forEach(item => {
       arr.push(item.src)
     })
     wx.previewImage({
