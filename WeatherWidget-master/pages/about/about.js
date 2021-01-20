@@ -64,6 +64,11 @@ Page({
       }
     })
   },
+  getblock() {
+    wx.navigateTo({
+      url: '/pages/block/block',
+    })
+  },
   previewImages(e) {
     let index = e.currentTarget.dataset.index || 0
     let urls = this.data.bannerImgList

@@ -49,5 +49,5 @@
       </view>
     </view>
   </view>
-  <view class='footer'>developed by pass party</view>
+  <view class='footer' bindlongtap='getblock'>developed by pass party</view>
 </view>

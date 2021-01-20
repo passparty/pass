@@ -1,0 +1,15 @@
+<view id="warpper">
+      <span>新年快乐,幸福美满!</span>
+			<view id="div1">平安</view>
+			<view id="div2">健康</view>
+			<view id="div3">幸运</view>
+			<view id="div4">愉快</view>
+			<view id="div5">美好</view>
+			<view id="div6">欢心</view>
+			<view id="div7"></view>
+			<view id="div8"></view>
+			<view id="div9"></view>
+			<view id="div10"></view>
+			<view id="div11"></view>
+			<view id="div12"></view>
+</view>

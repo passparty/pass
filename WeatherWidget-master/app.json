@@ -3,12 +3,13 @@
     "pages/index/index",
     "pages/about/about",
     "pages/setting/setting",
-    "pages/systeminfo/systeminfo"
+    "pages/systeminfo/systeminfo",
+    "pages/block/block"
   ],
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#40a7e7",
-    "navigationBarTitleText": "风云气象",
+    "navigationBarTitleText": "气象风云",
     "navigationBarTextStyle": "white"
   },
   "permission": {

@@ -1,0 +1,447 @@
+#warpper {
+  width: 200px;
+  height: 200px;
+  margin: 200px auto;
+  position: relative;
+  transform: rotateX(45deg)rotateY(45deg);
+  animation: move 15s infinite linear;
+  transform-style: preserve-3d;
+  font-size: 50px;
+  color: blue;
+  text-align: center;
+  background: -webkit-linear-gradient(bottom left, red, blue, yellow, cyan, green, orange, purple, pink);
+}
+ 
+span {
+  font-size: 40px;
+  margin-top: 40px;
+  width: 200px;
+  display: inline-block;
+}
+
+@keyframes move {
+  from {
+    transform: rotateX(45deg)rotateY(45deg);
+  }
+
+  to {
+    transform: rotateX(405deg)rotateY(405deg);
+  }
+}
+
+#div1,
+#div2,
+#div3,
+#div4,
+#div5,
+#div6 {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  box-shadow: 10px 10px 100px 5px white;
+  text-align: center;
+  color: blue;
+  line-height: 200px;
+}
+
+@keyframes start {
+  from {}
+
+  20% {
+    transform: translateZ(100px);
+  }
+
+  40% {
+    transform: translateZ(100px);
+  }
+
+  50% {
+    transform: translateZ(200px);
+  }
+
+  60% {
+    transform: translateZ(200px);
+  }
+
+  80% {
+    transform: translateZ(100px);
+  }
+
+  to {}
+}
+
+#div1 {
+  background: -webkit-linear-gradient(bottom left, red, blue, yellow, cyan, green, orange, purple, pink);
+
+}
+
+#div2 {
+  background: -webkit-linear-gradient(top right, red, blue, yellow, cyan, green, orange, purple, pink);
+
+}
+
+@keyframes start2 {
+  from {}
+
+  20% {
+    transform: rotateX(180deg) translateZ(100px);
+  }
+
+  40% {
+    transform: rotateX(180deg) translateZ(100px);
+  }
+
+  50% {
+    transform: rotateX(180deg) translateZ(200px);
+  }
+
+  60% {
+    transform: rotateX(180deg) translateZ(200px);
+  }
+
+  80% {
+    transform: rotateX(180deg) translateZ(100px);
+  }
+
+  to {}
+}
+
+#div3 {
+  background: -webkit-linear-gradient(top left, red, blue, yellow, cyan, green, orange, purple, pink);
+
+}
+
+@keyframes start3 {
+  from {}
+
+  20% {
+    transform: rotateX(90deg) translateZ(100px);
+  }
+
+  40% {
+    transform: rotateX(90deg) translateZ(100px);
+  }
+
+  50% {
+    transform: rotateX(90deg) translateZ(200px);
+  }
+
+  60% {
+    transform: rotateX(90deg) translateZ(200px);
+  }
+
+  80% {
+    transform: rotateX(90deg) translateZ(100px);
+  }
+
+  to {}
+}
+
+#div4 {
+  background: -webkit-linear-gradient(top left, red, blue, yellow, cyan, green, orange, purple, pink);
+
+}
+
+@keyframes start4 {
+  from {}
+
+  20% {
+    transform: rotateX(-90deg) translateZ(100px);
+  }
+
+  40% {
+    transform: rotateX(-90deg) translateZ(100px);
+  }
+
+  50% {
+    transform: rotateX(-90deg) translateZ(200px);
+  }
+
+  60% {
+    transform: rotateX(-90deg) translateZ(200px);
+  }
+
+  80% {
+    transform: rotateX(-90deg) translateZ(100px);
+  }
+
+  to {}
+}
+
+#div5 {
+  background: -webkit-linear-gradient(bottom right, red, blue, yellow, cyan, green, orange, purple, pink);
+
+}
+
+@keyframes start5 {
+  from {}
+
+  20% {
+    transform: rotateY(90deg) translateZ(100px);
+  }
+
+  40% {
+    transform: rotateY(90deg) translateZ(100px);
+  }
+
+  50% {
+    transform: rotateY(90deg) translateZ(200px);
+  }
+
+  60% {
+    transform: rotateY(90deg) translateZ(200px);
+  }
+
+  80% {
+    transform: rotateY(90deg) translateZ(100px);
+  }
+
+  to {}
+}
+
+#div6 {
+  background: -webkit-linear-gradient(bottom right, red, blue, yellow, cyan, green, orange, purple, pink);
+
+}
+
+@keyframes start6 {
+  from {}
+
+  20% {
+    transform: rotateY(-90deg) translateZ(100px);
+  }
+
+  40% {
+    transform: rotateY(-90deg) translateZ(100px);
+  }
+
+  50% {
+    transform: rotateY(-90deg) translateZ(200px);
+  }
+
+  60% {
+    transform: rotateY(-90deg) translateZ(200px);
+  }
+
+  80% {
+    transform: rotateY(-90deg) translateZ(100px);
+  }
+
+  to {}
+}
+
+#warpper:hover#warpper #div1 {
+  animation: start 20s infinite linear;
+}
+
+#warpper:hover#warpper #div2 {
+  animation: start2 20s infinite linear;
+}
+
+#warpper:hover#warpper #div3 {
+  animation: start3 20s infinite linear;
+}
+
+#warpper:hover#warpper #div5 {
+  animation: start5 20s infinite linear;
+}
+
+#warpper:hover#warpper #div4 {
+  animation: start4 20s infinite linear;
+}
+
+#warpper:hover#warpper #div6 {
+  animation: start6 20s infinite linear;
+}
+
+#div7,
+#div8,
+#div9,
+#div10,
+#div11,
+#div12 {
+  width: 500px;
+  height: 500px;
+  position: absolute;
+  left: -150px;
+  top: -150px;
+  border: 2px plum solid;
+  box-shadow: 10px 10px 50px 1px purple;
+  background-color: ghostwhite;
+}
+
+#div7 {
+  transform: translateZ(250px);
+}
+
+#warpper:hover#warpper #div7 {
+  animation: open1 20s infinite linear;
+}
+
+@keyframes open1 {
+  from {}
+
+  20% {
+    transform: translateZ(450px);
+    box-shadow: 10px 10px 100px 15px pink;
+  }
+
+  60% {
+    transform: translateZ(450px);
+    opacity: 0;
+  }
+
+  70% {
+    transform: translateZ(450px);
+    opacity: 0;
+  }
+
+  to {}
+}
+
+#div8 {
+  transform: rotateX(180deg) translateZ(250px);
+}
+
+#warpper:hover#warpper #div8 {
+  animation: open2 20s infinite linear;
+}
+
+@keyframes open2 {
+  from {}
+
+  20% {
+    transform: rotateX(180deg) translateZ(450px);
+    box-shadow: 10px 10px 100px 15px pink;
+  }
+
+  60% {
+    transform: rotateX(180deg) translateZ(450px);
+    opacity: 0;
+  }
+
+  70% {
+    transform: rotateX(180deg) translateZ(450px);
+    opacity: 0;
+  }
+
+  to {}
+}
+
+#div9 {
+  transform: rotateX(90deg) translateZ(250px);
+}
+
+#warpper:hover#warpper #div9 {
+  animation: open3 20s infinite linear;
+}
+
+@keyframes open3 {
+  from {}
+
+  20% {
+    transform: rotateX(90deg) translateZ(450px);
+    box-shadow: 10px 10px 100px 15px pink;
+  }
+
+  60% {
+    transform: rotateX(90deg) translateZ(450px);
+    opacity: 0;
+  }
+
+  70% {
+    transform: rotateX(90deg) translateZ(450px);
+    opacity: 0;
+  }
+
+  to {}
+}
+
+#div10 {
+  transform: rotateX(-90deg) translateZ(250px);
+}
+
+#warpper:hover#warpper #div10 {
+  animation: open4 20s infinite linear;
+}
+
+@keyframes open4 {
+  from {}
+
+  20% {
+    transform: rotateX(-90deg) translateZ(450px);
+    box-shadow: 10px 10px 100px 15px pink;
+  }
+
+  60% {
+    transform: rotateX(-90deg) translateZ(450px);
+    opacity: 0;
+  }
+
+  70% {
+    transform: rotateX(-90deg) translateZ(450px);
+    opacity: 0;
+  }
+
+  to {}
+}
+
+#div11 {
+  transform: rotateY(90deg) translateZ(250px);
+}
+
+#warpper:hover#warpper #div11 {
+  animation: open5 20s infinite linear;
+}
+
+@keyframes open5 {
+  from {}
+
+  20% {
+    transform: rotateY(90deg) translateZ(450px);
+    box-shadow: 10px 10px 100px 15px pink;
+  }
+
+  60% {
+    transform: rotateY(90deg) translateZ(450px);
+    opacity: 0;
+  }
+
+  70% {
+    transform: rotateY(90deg) translateZ(450px);
+    opacity: 0;
+  }
+
+  to {}
+}
+
+#div12 {
+  transform: rotateY(-90deg) translateZ(250px);
+}
+
+#warpper:hover#warpper #div12 {
+  animation: open6 20s infinite linear;
+}
+
+@keyframes open6 {
+  from {}
+
+  20% {
+    transform: rotateY(-90deg) translateZ(450px);
+    box-shadow: 10px 10px 100px 15px pink;
+  }
+
+  60% {
+    transform: rotateY(-90deg) translateZ(450px);
+    opacity: 0;
+  }
+
+  70% {
+    transform: rotateY(-90deg) translateZ(450px);
+    opacity: 0;
+  }
+
+  to {}
+}
